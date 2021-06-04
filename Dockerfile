@@ -1,5 +1,9 @@
 FROM madwind/flexget
 
+ARG FLEXGET_UPSTEAM_HASH= \
+    FLEXGET_QBITTORRENT_MOD_COMMIT= \
+    FLEXGET_NEXUSPHP_COMMIT=
+
 RUN mkdir /config/plugins \
     git clone https://github.com/IvonWei/flexget_qbittorrent_mod /tmp/flexget_qbittorrent_mod \
     rm -rf /tmp/flexget_qbittorrent_mod/image-builder \
