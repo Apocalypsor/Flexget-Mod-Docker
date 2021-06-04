@@ -14,7 +14,7 @@ on:
 
 jobs:
   Update:
-    name: Update OLAINDEX
+    name: Update
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,15 +24,15 @@ jobs:
         run: |
           docker pull madwind/flexget > /tmp/msg
           u_hash=$(cat /tmp/msg | grep Digest: | sed "s/Digest: sha256://")
-          [ $u_hash ] && sed -i "s/FLEXGET_UPSTEAM_HASH=.*\\/ARG FLEXGET_UPSTEAM_HASH=$u_hash \\/g" Dockerfile
+          [ $u_hash ] && sed -i "s/FLEXGET_UPSTEAM_HASH=.*\\\/FLEXGET_UPSTEAM_HASH=$u_hash \\\/g" Dockerfile
       - name: Update flexget_qbittorrent_mod
         run: |
           latest_commit=$(curl -s -N https://api.github.com/repos/IvonWei/flexget_qbittorrent_mod/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
-          [ $latest_commit ] && sed -i "s/FLEXGET_QBITTORRENT_MOD_COMMIT=.*\\/FLEXGET_QBITTORRENT_MOD_COMMIT=$latest_commit \\/g" Dockerfile
+          [ $latest_commit ] && sed -i "s/FLEXGET_QBITTORRENT_MOD_COMMIT=.*\\\/FLEXGET_QBITTORRENT_MOD_COMMIT=$latest_commit \\\/g" Dockerfile
       - name: Update Smartdns
         run: |
           latest_commit=$(curl -s -N https://api.github.com/repos/Juszoe/flexget-nexusphp/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
-          [ $latest_commit ] && sed -i "s/FLEXGET_NEXUSPHP_COMMIT=.*\\/FLEXGET_NEXUSPHP_COMMIT=$latest_commit \\/g" Dockerfile
+          [ $latest_commit ] && sed -i "s/FLEXGET_NEXUSPHP_COMMIT=.*\\\/FLEXGET_NEXUSPHP_COMMIT=$latest_commit \\\/g" Dockerfile
       - name: Push
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
