@@ -4,7 +4,8 @@ ARG FLEXGET_UPSTEAM_HASH= \
     FLEXGET_QBITTORRENT_MOD_COMMIT= \
     FLEXGET_NEXUSPHP_COMMIT=
 
-RUN mkdir -p /config/plugins \
+RUN apk add --no-cache --upgrade git \
+    && mkdir -p /config/plugins \
     && git clone https://github.com/IvonWei/flexget_qbittorrent_mod /tmp/flexget_qbittorrent_mod \
     && rm -rf /tmp/flexget_qbittorrent_mod/image-builder \
     && rm -f /tmp/flexget_qbittorrent_mod/.gitignore \
