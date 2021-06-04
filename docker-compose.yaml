@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  flexget:
+    image: ghcr.io/apocalypsor/flexget
+    container_name: flexget
+    environment:
+      FG_WEBUI_PASSWD: PASSWD
+      FG_LOG_LEVEL: INFO
+      TZ: Asia/Shanghai
+      PUID: 1000
+      PGID: 1000
+    volumes:
+      - ./config/config.yml:/config/config.yml
+      - ./downloads:/downloads
+    ports:
+      - 53539:3539
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
