@@ -1,0 +1,31 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/Update.yaml
+  
+  schedule:
+    - cron: 0 4 * * *
+
+jobs:
+  Update:
+    name: Update OLAINDEX
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+      - name: Update Overture
+        run: |
+          latest_commit=$(curl -s -N https://api.github.com/repos/WangNingkai/OLAINDEX/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | sed -n 2p)
+          [ $latest_commit ] && sed -i "s/ARG COMMIT=.*/ARG COMMIT=$latest_commit/g" Dockerfile
+      - name: Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update OLAINDEX
+          skip_dirty_check: false
