@@ -2,7 +2,7 @@ FROM madwind/flexget
 
 ARG FLEXGET_UPSTEAM_HASH= \
     FLEXGET_QBITTORRENT_MOD_COMMIT= \
-    FLEXGET_NEXUSPHP_COMMIT=
+    FLEXGET_NEXUSPHP_COMMIT= 
 
 RUN apk add --no-cache --upgrade git \
     && mkdir -p /config/plugins \
