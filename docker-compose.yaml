@@ -12,9 +12,11 @@ services:
       PGID: 1000
     volumes:
       - ./config/config.yml:/config/config.yml
+      - ./config/db-config-jobs.sqlite:/config/db-config-jobs.sqlite
+      - ./config/db-config.sqlite:/config/db-config.sqlite
       - ./downloads:/downloads
     ports:
-      - 53539:3539
+      - 127.0.0.1:53539:3539
     restart: always
     logging:
       driver: "json-file"
