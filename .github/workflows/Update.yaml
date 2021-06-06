@@ -29,7 +29,7 @@ jobs:
         run: |
           latest_commit=$(curl -s -N https://api.github.com/repos/IvonWei/flexget_qbittorrent_mod/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
           [ $latest_commit ] && sed -i "s/FLEXGET_QBITTORRENT_MOD_COMMIT=.*\\\/FLEXGET_QBITTORRENT_MOD_COMMIT=$latest_commit \\\/g" Dockerfile
-      - name: Update Smartdns
+      - name: Update flexget-nexusphp
         run: |
           latest_commit=$(curl -s -N https://api.github.com/repos/Juszoe/flexget-nexusphp/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
           [ $latest_commit ] && sed -i "s/FLEXGET_NEXUSPHP_COMMIT=.*/FLEXGET_NEXUSPHP_COMMIT=$latest_commit/g" Dockerfile
