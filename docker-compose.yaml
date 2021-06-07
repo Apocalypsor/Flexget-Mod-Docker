@@ -11,9 +11,8 @@ services:
       PUID: 1000
       PGID: 1000
     volumes:
-      - ./config/config.yml:/config/config.yml
-      - ./config/db-config-jobs.sqlite:/config/db-config-jobs.sqlite
-      - ./config/db-config.sqlite:/config/db-config.sqlite
+      - ./config:/config
+      - /config/plugins
       - ./downloads:/downloads
     ports:
       - 127.0.0.1:53539:3539
