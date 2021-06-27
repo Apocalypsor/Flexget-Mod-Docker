@@ -27,7 +27,7 @@ jobs:
           [ $u_hash ] && sed -i "s/FLEXGET_UPSTEAM_HASH=.*\\\/FLEXGET_UPSTEAM_HASH=$u_hash \\\/g" Dockerfile
       - name: Update flexget_qbittorrent_mod
         run: |
-          latest_commit=$(curl -s -N https://api.github.com/repos/IvonWei/flexget_qbittorrent_mod/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
+          latest_commit=$(curl -s -N https://api.github.com/repos/madwind/flexget_qbittorrent_mod/commits | grep '"sha":' | sed -E 's/.*"([^"]+)".*/\1/' | head -1)
           [ $latest_commit ] && sed -i "s/FLEXGET_QBITTORRENT_MOD_COMMIT=.*\\\/FLEXGET_QBITTORRENT_MOD_COMMIT=$latest_commit \\\/g" Dockerfile
       - name: Update flexget-nexusphp
         run: |
