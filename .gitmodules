@@ -1,0 +1,6 @@
+[submodule "flexget_qbittorrent_mod"]
+	path = flexget_qbittorrent_mod
+	url = https://github.com/IvonWei/flexget_qbittorrent_mod
+[submodule "flexget-nexusphp"]
+	path = flexget-nexusphp
+	url = https://github.com/Juszoe/flexget-nexusphp

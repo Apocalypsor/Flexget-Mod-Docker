@@ -1,0 +1,21 @@
+{
+	"composefiles": {
+		"docker-compose.yaml": [
+			{
+				"name": "ghcr.io/apocalypsor/flexget",
+				"tag": "latest",
+				"digest": "8f90a8a9822d20c692e676aa9d6f546292b1e7e9fef7409418c55a5b90e272ca",
+				"service": "flexget"
+			}
+		]
+	},
+	"dockerfiles": {
+		"Dockerfile": [
+			{
+				"name": "madwind/flexget",
+				"tag": "latest",
+				"digest": "927687929951a2aa0baaa85d0f29a819bcf92898902437dd15f974424a068dda"
+			}
+		]
+	}
+}
