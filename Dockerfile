@@ -10,4 +10,4 @@ RUN apk add --no-cache --upgrade git \
     && rm -f /tmp/flexget_qbittorrent_mod/LICENSE \
     && rm -f /tmp/flexget_qbittorrent_mod/*.md \
     && mv /tmp/flexget_qbittorrent_mod/* /config/plugins \
-    && mv /tmp/flexget-nexusphp/nexusphp.py -O /config/plugins/nexusphp.py
+    && mv /tmp/flexget-nexusphp/nexusphp.py /config/plugins/nexusphp.py
