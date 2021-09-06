@@ -10,4 +10,5 @@ RUN apk add --no-cache --upgrade git \
     && rm -f /tmp/flexget_qbittorrent_mod/LICENSE \
     && rm -f /tmp/flexget_qbittorrent_mod/*.md \
     && mv /tmp/flexget_qbittorrent_mod/* /config/plugins \
-    && mv /tmp/flexget-nexusphp/nexusphp.py /config/plugins/
+    && mv /tmp/flexget-nexusphp/nexusphp.py /config/plugins/ \
+    && [ -f /config/hook.sh ] && bash /config/hook.sh || true
