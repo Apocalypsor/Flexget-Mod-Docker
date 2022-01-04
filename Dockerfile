@@ -3,11 +3,12 @@ FROM madwind/flexget
 COPY flexget_qbittorrent_mod /tmp/flexget_qbittorrent_mod
 COPY flexget-nexusphp /tmp/flexget-nexusphp
 
-RUN apk add --no-cache --upgrade git \
+RUN DEBIAN_FRONTEND=noninteractive apt -y update && apt -y install git && apt clean \
     && mkdir -p /config/plugins \
     && rm -rf /tmp/flexget_qbittorrent_mod/image-builder \
-    && rm -f /tmp/flexget_qbittorrent_mod/.git* \
-    && rm -f /tmp/flexget_qbittorrent_mod/LICENSE \
-    && rm -f /tmp/flexget_qbittorrent_mod/*.md \
+    && rm -rf /tmp/flexget_qbittorrent_mod/.git* \
+    && rm -rf /tmp/flexget_qbittorrent_mod/LICENSE \
+    && rm -rf /tmp/flexget_qbittorrent_mod/*.md \
     && mv -f /tmp/flexget_qbittorrent_mod/* /config/plugins \
-    && mv -f /tmp/flexget-nexusphp/nexusphp.py /config/plugins/
+    && mv -f /tmp/flexget-nexusphp/nexusphp.py /config/plugins/ \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
