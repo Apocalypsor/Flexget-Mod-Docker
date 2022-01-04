@@ -3,10 +3,7 @@ FROM madwind/flexget
 COPY flexget_qbittorrent_mod /tmp/flexget_qbittorrent_mod
 COPY flexget-nexusphp /tmp/flexget-nexusphp
 
-RUN DEBIAN_FRONTEND=noninteractive apt -y update \
-    && DEBIAN_FRONTEND=noninteractive apt -y install git \
-    && DEBIAN_FRONTEND=noninteractive apt clean \
-    && mkdir -p /config/plugins \
+RUN mkdir -p /config/plugins \
     && rm -rf /tmp/flexget_qbittorrent_mod/image-builder \
     && rm -rf /tmp/flexget_qbittorrent_mod/.git* \
     && rm -rf /tmp/flexget_qbittorrent_mod/LICENSE \
