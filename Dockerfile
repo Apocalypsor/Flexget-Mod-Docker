@@ -4,7 +4,6 @@ COPY flexget_qbittorrent_mod /tmp/flexget_qbittorrent_mod
 COPY flexget-nexusphp /tmp/flexget-nexusphp
 
 RUN mkdir -p /config/plugins \
-    && rm -rf /tmp/flexget_qbittorrent_mod/image-builder \
     && rm -rf /tmp/flexget_qbittorrent_mod/.git* \
     && rm -rf /tmp/flexget_qbittorrent_mod/LICENSE \
     && rm -rf /tmp/flexget_qbittorrent_mod/*.md \
